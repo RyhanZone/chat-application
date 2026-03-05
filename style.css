@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0d0d0f;
+  --surface: #161618;
+  --border: #2a2a2e;
+  --accent: #c8f135;
+  --accent-dim: rgba(200, 241, 53, 0.12);
+  --text-primary: #f0efe8;
+  --text-muted: #6b6b72;
+  --error: #ff5f5f;
+  --success: #c8f135;
+  --input-bg: #1c1c1f;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Animated background grid */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,241,53,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,241,53,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glow blob */
+body::after {
+  content: '';
+  position: fixed;
+  top: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(200,241,53,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  animation: blobDrift 12s ease-in-out infinite alternate;
+}
+
+@keyframes blobDrift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(300px, 200px); }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 44px 40px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.03), 0 40px 80px rgba(0,0,0,0.5);
+  animation: formSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes formSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+form h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+form h1::after {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-top: 10px;
+}
+
+.fsection {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fsection > label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.fsection > input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.fsection > input::placeholder {
+  color: #3a3a40;
+}
+
+.fsection > input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(200,241,53,0.1);
+}
+
+.fsection > span {
+  font-size: 12px;
+  min-height: 16px;
+  font-weight: 400;
+}
+
+button[type="submit"] {
+  width: 100%;
+  height: 48px;
+  margin-top: 28px;
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #0d0d0f;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200,241,53,0.3);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+.container p {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.container p a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.container p a:hover {
+  opacity: 0.8;
+}
+
+/* Username availability span — used in registration */
+#usernameerror {
+  font-size: 12px;
+  min-height: 16px;
+  font-weight: 400;
+}
+
+.error-msg {
+  font-size: 12px;
+  color: var(--error);
+  min-height: 16px;
+}
