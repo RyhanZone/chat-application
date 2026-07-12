@@ -29,18 +29,16 @@ The application is built **completely from scratch** using core web technologies
 
 # 🖼️ Preview
 
-> (Add screenshots here after uploading to GitHub)
-
 ```
-assets/login-preview.png
-assets/chat-preview.png
+https://i.postimg.cc/rpymk3Zh/Screenshot-2026-07-12-080323.png
 ```
 
 Example:
 
 ```
-![Login Page](assets/login-preview.png)
-![Chat UI](assets/chat-preview.png)
+https://i.postimg.cc/LXc2nbvK/Screenshot-2026-07-12-081457.png
+https://i.postimg.cc/GppcNY9J/Screenshot-2026-07-12-080346.png
+https://i.postimg.cc/rpymk3Zh/Screenshot-2026-07-12-080323.png
 ```
 
 ---
