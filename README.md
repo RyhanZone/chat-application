@@ -274,7 +274,6 @@ Before deploying publicly:
 **Al Rafi**
 
 💻 Web Developer  
-🎥 Tech Content Creator
 
 ---
 
